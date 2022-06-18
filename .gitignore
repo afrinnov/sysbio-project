@@ -1,1 +1,6 @@
 /.idea
+
+
+/poc-sysbio/src/main/front-sysbio/dist/
+/poc-sysbio/src/main/front-sysbio/node_modules/
+/poc-sysbio/target/
