@@ -11,13 +11,7 @@ const SuscriberEdit = lazy(() => import('./components/suscribers/edit/SuscriberE
 function App() {
   return (<>
     <Container>
-      <MenuBar />
-    <nav>
-      <Link href="/about">About</Link>
-      <Link href="/">Home</Link>
-      <Link href="/suscribers">Suscribers</Link>
-      <Link href="/suscribers/new">New Suscriber</Link>
-    </nav>
+      <MenuBar />    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<div>This site was made with Solid</div>} />
