@@ -1,0 +1,55 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'com.netflix.dgs.codegen' version '5.1.17'
+    id 'java'
+}
+
+group 'org.afrinnov.rnd'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter'
+    implementation 'com.netflix.graphql.dgs:graphql-dgs-pagination:5.0.3'
+    implementation 'com.netflix.graphql.dgs:graphql-dgs-extended-scalars'
+    implementation 'com.github.ben-manes.caffeine:caffeine:3.1.1'
+    implementation 'com.netflix.graphql.dgs:graphql-dgs-spring-webmvc:5.0.3'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.mapstruct:mapstruct:1.5.1.Final'
+    runtimeOnly 'mysql:mysql-connector-java'
+    implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:latest.release"))
+
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.1.Final'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
+    testImplementation 'com.netflix.graphql.dgs:graphql-dgs-client:5.0.3'
+    testRuntimeOnly 'com.h2database:h2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+generateJava {
+    schemaPaths = ["${projectDir}/src/main/resources/schema"]
+    packageName = 'org.afrinnov.rnd.afrinnovdgs.datafetcher'
+    generateClient = true
+}

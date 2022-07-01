@@ -4,3 +4,8 @@
 /poc-sysbio/src/main/front-sysbio/dist/
 /poc-sysbio/src/main/front-sysbio/node_modules/
 /poc-sysbio/target/
+/.jpb
+/poc-dgs-graphql/.idea
+/poc-dgs-graphql/.gradle
+/poc-dgs-graphql/build
+/poc-sysbio/.idea

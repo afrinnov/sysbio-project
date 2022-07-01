@@ -1,0 +1,72 @@
+type Query {
+    dossiers(dossierId: String): Dossier
+}
+
+type Dossier {
+  code: String
+  patientType: String
+  entryDate: DateTime
+  amountToPay: Float
+  receiveAmount: Float
+  restAmount: Float
+  author: String
+  percent: Float
+  patient: Patient
+  prescripteur: Prescripteur
+  quotePart: Float
+  amountToRepay: Float
+  saisiStatus: String
+  readyToPrintDate: String
+  saisieDate: String
+  emergencyMode: String
+  examens: [DossierExam]
+}
+
+type DossierExam {
+    amount: Float
+    dossierRef: String
+    examen: Exam
+    content: String
+    author: String
+    status: String
+    realHeight: Int
+}
+
+type Exam {
+    code: String
+    designation: String
+    description: String
+    prixUrgent: Float
+    prixPartenaire: Float
+    prix: Float
+    laboratoire: Laboratoire
+}
+
+type Laboratoire {
+    code: String
+    designation: String
+    description: String
+    responsable: String
+    emailResponsable: String
+}
+
+type Prescripteur {
+    matricule: String
+    name: String
+    email: String
+    phone: String
+    title: String
+    service: String
+    currentQuotePart: Float
+}
+
+type Patient {
+    code: String
+    name: String
+    sex: String
+    age: String
+    email: String
+    contact: String
+}
+
+scalar DateTime

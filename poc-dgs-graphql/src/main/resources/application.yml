@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: dgs-example
+  jpa:
+    show-sql: false
+    open-in-view: false
+  datasource:
+    url: jdbc:mysql://37.187.88.37:33306/sysbio?useSSL=false&allowPublicKeyRetrieval=true&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: afrinnov
+logging.level.graphql: DEBUG
+
+whoiswho:
+  security:
+    password-strength: 18
+    token-secret: 12589665554555fdsfsgfdbhfdgnfdh55f
+    token-issuer: afrinnov
+    token-expiration: 4h
+
