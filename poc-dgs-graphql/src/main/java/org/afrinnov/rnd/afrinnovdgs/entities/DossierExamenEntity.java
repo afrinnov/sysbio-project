@@ -22,11 +22,12 @@ public class DossierExamenEntity extends AbstractSysbioEntity{
     @Column(name = "amount")
     private  double amount;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private DossierEntity dossier;
     
     @ManyToOne
     private ExamenEntity examen;
+
     private String content;
     private String author;
     @Enumerated(EnumType.STRING)

@@ -1,5 +1,6 @@
 type Query {
     dossiers(dossierId: String): Dossier
+    getExamsFamily(code: String, page: Int, size: Int) : [Laboratoire]
 }
 
 type Dossier {
@@ -20,34 +21,6 @@ type Dossier {
   saisieDate: String
   emergencyMode: String
   examens: [DossierExam]
-}
-
-type DossierExam {
-    amount: Float
-    dossierRef: String
-    examen: Exam
-    content: String
-    author: String
-    status: String
-    realHeight: Int
-}
-
-type Exam {
-    code: String
-    designation: String
-    description: String
-    prixUrgent: Float
-    prixPartenaire: Float
-    prix: Float
-    laboratoire: Laboratoire
-}
-
-type Laboratoire {
-    code: String
-    designation: String
-    description: String
-    responsable: String
-    emailResponsable: String
 }
 
 type Prescripteur {

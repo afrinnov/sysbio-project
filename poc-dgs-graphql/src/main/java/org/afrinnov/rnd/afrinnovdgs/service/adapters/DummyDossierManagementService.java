@@ -1,11 +1,14 @@
 package org.afrinnov.rnd.afrinnovdgs.service.adapters;
 
 import org.afrinnov.rnd.afrinnovdgs.datafetcher.types.*;
+import org.afrinnov.rnd.afrinnovdgs.exam.id.LaboratoireId;
 import org.afrinnov.rnd.afrinnovdgs.service.DossierManagementService;
 import org.afrinnov.rnd.afrinnovdgs.service.dto.DossierId;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.time.OffsetDateTime;
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -30,6 +33,11 @@ public class DummyDossierManagementService implements DossierManagementService {
         dossierExam.setStatus("REAL");
         dossierExam.setExamen(initExam());
         return List.of(dossierExam);
+    }
+
+    @Override
+    public List<Exam> getExams(LaboratoireId laboratoireId, Operation operation, Pageable unpaged) {
+        return Collections.emptyList();
     }
 
 

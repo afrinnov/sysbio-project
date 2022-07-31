@@ -1,11 +1,10 @@
 package org.afrinnov.rnd.afrinnovdgs.service;
 
 
-import org.afrinnov.rnd.afrinnovdgs.datafetcher.types.Dossier;
-import org.afrinnov.rnd.afrinnovdgs.datafetcher.types.DossierExam;
-import org.afrinnov.rnd.afrinnovdgs.datafetcher.types.Patient;
-import org.afrinnov.rnd.afrinnovdgs.datafetcher.types.Prescripteur;
+import org.afrinnov.rnd.afrinnovdgs.datafetcher.types.*;
+import org.afrinnov.rnd.afrinnovdgs.exam.id.LaboratoireId;
 import org.afrinnov.rnd.afrinnovdgs.service.dto.DossierId;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -18,4 +17,5 @@ public interface DossierManagementService {
 
     List<DossierExam> getDossierExam(DossierId dossierId);
 
+    List<Exam> getExams(LaboratoireId laboratoireId, Operation operation, Pageable pageable);
 }

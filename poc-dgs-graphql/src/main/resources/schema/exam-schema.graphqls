@@ -1,0 +1,60 @@
+type DossierExam {
+    amount: Float
+    dossierRef: String
+    examen: Exam
+    content: String
+    author: String
+    status: String
+    realHeight: Int
+}
+
+type Exam {
+    code: String
+    designation: String
+    description: String
+    prixUrgent: Float
+    prixPartenaire: Float
+    prix: Float
+    formulaires: [Formulaire]
+    laboratoire: Laboratoire
+    hasForm: Boolean
+}
+enum FormatType {
+  FIFTH
+  QUARTER
+  TWO_FIFTH
+  TREE_FIFTH
+  TREE_QUARTER
+  FOUR_FIFTH
+  NONE
+  LIGNE_TABLEAU
+  SIXTH
+  THIRD
+  HALF
+  TWO_THIRD
+  FIVE_SIXTH
+  FULL
+}
+
+type Formulaire {
+ content: String
+ format: FormatType
+ ordre: String
+ designation: String
+ groupe: String
+}
+
+enum Operation {
+    NON_FORM,
+    WITH_FORM
+}
+
+type Laboratoire {
+    code: String
+    designation: String
+    description: String
+    responsable: String
+    emailResponsable: String
+    exams(page: Int, size: Int, format: FormatType, operation: Operation): [Exam]
+}
+

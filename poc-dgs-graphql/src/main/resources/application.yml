@@ -17,3 +17,7 @@ whoiswho:
     token-issuer: afrinnov
     token-expiration: 4h
 
+dgs:
+  graphql:
+    graphiql:
+      title:  Sysbio Graphql Endpoint
